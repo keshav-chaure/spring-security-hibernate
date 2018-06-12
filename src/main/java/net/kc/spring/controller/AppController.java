@@ -50,13 +50,33 @@ public class AppController {
     /**
      * This method will list all existing users.
      */
-    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+ /*   @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+    public String listUsers(ModelMap model) {
+
+        List<User> users = userService.findAllUsers();
+        model.addAttribute("users", users);
+        model.addAttribute("loggedinuser", getPrincipal());
+      //  return "userslist";
+        return "homePage";
+    }
+*/
+    @RequestMapping(value = { "/"  }, method = RequestMethod.GET)
+    public String home(ModelMap model) {
+
+        List<User> users = userService.findAllUsers();
+        model.addAttribute("users", users);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "homePage";
+    }
+
+    @RequestMapping(value = {   "/list" }, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
 
         List<User> users = userService.findAllUsers();
         model.addAttribute("users", users);
         model.addAttribute("loggedinuser", getPrincipal());
         return "userslist";
+
     }
 
     /**

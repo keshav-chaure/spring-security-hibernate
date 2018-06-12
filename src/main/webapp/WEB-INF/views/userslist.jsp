@@ -8,12 +8,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Users List</title>
-    <link href="<c:url value='/resources/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/resources/css/app.css' />" rel="stylesheet"></link>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
+ <%@include file="nav.jsp" %>
     <div class="generic-container">
+
         <%@include file="authheader.jsp" %>
         <div class="panel panel-default">
               <!-- Default panel contents -->
@@ -27,7 +31,7 @@
                         <th>SSO ID</th>
                         <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                             <th width="100"></th>
-                        </sec:authorize>
+                                                                </sec:authorize>
                         <sec:authorize access="hasRole('ADMIN')">
                             <th width="100"></th>
                         </sec:authorize>
@@ -57,6 +61,10 @@
                 <a href="<c:url value='/newuser' />">Add New User</a>
             </div>
         </sec:authorize>
+       <div class="well">
+                       <a href="<c:url value='/other' />">Other page</a>
+                   </div>
+
     </div>
 </body>
 </html>

@@ -8,6 +8,8 @@
 .idea/
 *.iml
 *.iws
+.application.properties
+
 
 # Mac
 .DS_Store
