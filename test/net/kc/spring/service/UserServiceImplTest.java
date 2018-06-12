@@ -4,13 +4,10 @@ import net.kc.spring.dao.UserDao;
 import net.kc.spring.model.User;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-
-import javax.persistence.ManyToOne;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +24,7 @@ public class UserServiceImplTest {
     private UserDao userDao;
 
     @InjectMocks
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Before
     public void setUp(){
@@ -35,13 +32,18 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void findById() throws Exception {
+    public void shouldReturnSameUserIdByfindById() throws Exception {
         User expectedUser=getUser();
         Mockito.when(userService.findById(USER_ID)).thenReturn(expectedUser);
 
         User user=userService.findById(USER_ID);
 
         assertEquals("user id should be same ",expectedUser.getId(),user.getId());
+    }
+
+    @Test
+    public void testMavenTestGoal(){
+        assertEquals(1,1);
     }
 
     private User getUser() {
